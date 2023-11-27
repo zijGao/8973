@@ -112,8 +112,8 @@ elif args.dataset == 'tiny-imagenet':
     ])
 
     #load all data
-    train_dir = "/home/gao-s2r/data/tiny-imagenet-200/train"
-    test_dir = "/home/gao-s2r/data/tiny-imagenet-200/val"
+    train_dir = "~/data"
+    test_dir = "~/data"
     train_dset = datasets.ImageFolder(train_dir)
 
     train_images = []
