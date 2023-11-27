@@ -247,6 +247,29 @@ def main_worker(gpu, ngpus_per_node, args):
                 'optimizer': optimizer.state_dict(),
             }, is_best)
 
+    # 
+    # # Base No_change share the parameter R
+    # base_feature_extractor = torch.nn.Sequential(model.conv1, model.bn1, model.relu, model.layer1,
+    #                                              model.layer2,
+    #                                              model.layer3, model.layer4)
+    # base_feature_extractor.eval()
+    # 
+    # Learnable_model = leanrable_model(model.projector, model.avgpool, Flatten(), model.fc)
+    # 
+    # 
+    # 
+    # bias_fe = False
+    # # get expansion weight
+    # if hasattr(Learnable_model, 'module'):
+    #     Learnable_model.module.fc2 = nn.Sequential(nn.Linear(Learnable_model.module.fc.weight.size(1), args.Hidden, bias=bias_fe),
+    #                                     nn.ReLU(),
+    #                                     nn.Linear(args.Hidden, args.num_classes, bias=False)).cuda(args.gpu)
+    # else:
+    #     Learnable_model.fc2 = nn.Sequential(nn.Linear(Learnable_model.fc.weight.size(1), args.Hidden, bias=bias_fe),
+    #                              nn.ReLU(),
+    #                              nn.Linear(args.Hidden, args.num_classes, bias=False)).cuda(args.gpu)
+    # 
+    # Learnable_model.eval()
 
 
 
